@@ -1,3 +1,4 @@
+'''
 def fizzbuzz(number_1, number_2):
     for i, item in enumerate(number_1):
         j = i
@@ -24,6 +25,25 @@ def main():
     buzz(number_2)
     fizzbuzz(number_1, number_2)
     print(number_1)
+'''
+
+def fizzbuzz(number):
+    if number % 3 == 0 and number % 5 == 0:
+        number = 'FizzBuzz'
+    elif number % 3 == 0:
+        number = 'Fizz'
+    elif number % 5 == 0:
+        number = 'Buzz'
+    return number
+
+def main():
+    numbers = list(range(1, 101))
+    for i in range(0, 100):
+        number = numbers[i]
+        number = fizzbuzz(number)
+        numbers[i] = number
+    print(numbers)
+
 
 if __name__ == '__main__':
     main()
