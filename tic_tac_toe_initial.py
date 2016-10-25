@@ -42,7 +42,7 @@ def user_input(player):
                 return player_input - 1
             else: 
                 print('\n\033[1;31mThat is not a valid move, please try again.\033[1;m\n')
-        except Exception as e:
+        except:
             print('\033[1;31mThis is not a valid move, please try again.\033[1;m\n')
 
 # win and winner check functions
@@ -93,8 +93,6 @@ def who_the_winner_8(board):
 
 # End functions
 def winner_script(winner):
-    global restart
-
     if winner == playerO:
         print('\033[1;33mThe winner is O\033[1;m')
         
@@ -103,7 +101,6 @@ def winner_script(winner):
     restart_f()
 
 def no_more_step(board):
-    global restart
     if board.count(' ') == 0:
         print('There is no winner.')
         restart_f()
@@ -130,10 +127,9 @@ def main():
         playerO = '\033[1;33mO\033[1;m'
         winner = ' '
         print_instruction()
-        restart = False
 
         # input handling, moves counting
-        while not restart:
+        while True:
             no_more_step(board)
             check_win(board)
             move_count += 1
